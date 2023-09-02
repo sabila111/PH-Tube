@@ -1,3 +1,7 @@
+// navbar 
+function blogPage(){
+    window.location.href = 'index2.html'
+}
 // button js
 const handleCategory = async () => {
     const response = await fetch('https://openapi.programming-hero.com/api/videos/categories');
@@ -32,10 +36,10 @@ const handleButton = async (categoryId) => {
         <div class="card-body">
         <div class="flex justify-items-start gap-3">
         <img class="w-10 h-10 rounded-[40px]" src=${entertainment?.authors[0].profile_picture} />
-        <h2 class="card-title">${entertainment.title}</h2>
+        <h2 class="card-title">${entertainment.title} </h2>
         </div>
        <div class="flex justify-items-start gap-3">
-       <p>${entertainment.authors[0].profile_name}</p>
+       <p>${entertainment.authors[0].profile_name} ${entertainment.authors[0].verified}</p>
        <img class="w-5 h-5" src="fi_10629607.jpg" alt="">
        </div>
         <p>${entertainment.others.views}</p>
@@ -49,6 +53,7 @@ const handleButton = async (categoryId) => {
 }
 
 handleCategory();
+handleButton('1000');
 
 
 
