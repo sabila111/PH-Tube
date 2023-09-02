@@ -19,6 +19,7 @@ const handleCategory = async () => {
     });
 };
 
+
 const handleButton = async (categoryId) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
     const data = await response.json();
@@ -26,7 +27,7 @@ const handleButton = async (categoryId) => {
     cardContainer.innerHTML="";
 
     data.data?.forEach((entertainment) => {
-        console.log(entertainment);
+    
         const div = document.createElement('div');
         div.innerHTML = `
       <div class="card w-[350px] bg-base-100 mb-2 my-10">
@@ -39,8 +40,8 @@ const handleButton = async (categoryId) => {
         <h2 class="card-title">${entertainment.title} </h2>
         </div>
        <div class="flex justify-items-start gap-3">
-       <p>${entertainment.authors[0].profile_name} ${entertainment.authors[0].verified}</p>
-       <img class="w-5 h-5" src="fi_10629607.jpg" alt="">
+       <p>${entertainment.authors[0].profile_name} </p>
+       ${entertainment?.authors[0].verified} <img class="w-5 h-5" src="fi_10629607.jpg" alt=""> 
        </div>
         <p>${entertainment.others.views}</p>
         
@@ -59,9 +60,3 @@ handleButton('1000');
 
 
 
-const handle = () => {
-    fetch('https://openapi.programming-hero.com/api/videos/categories')
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-};
-handle();
